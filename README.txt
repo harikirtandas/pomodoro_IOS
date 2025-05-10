@@ -93,3 +93,9 @@ BUCLE PRINCIPAL
 ventana.mainloop()
 
 - Mantiene la ventana activa y funcionando
+
+--------------------------------------------------
+📊 DIAGRAMA DE FLUJO
+--------------------------------------------------
+Consulta el diagrama del ciclo completo aquí:
+diagrama-flujo.png
