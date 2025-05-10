@@ -97,5 +97,6 @@ ventana.mainloop()
 --------------------------------------------------
 📊 DIAGRAMA DE FLUJO
 --------------------------------------------------
-Consulta el diagrama del ciclo completo aquí:
+Consulta el diagrama visual del funcionamiento del temporizador aquí:
+
 diagrama-flujo.png
