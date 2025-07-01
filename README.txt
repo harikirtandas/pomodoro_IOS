@@ -1,102 +1,68 @@
-DOCUMENTACIÓN DEL PROYECTO - TEMPORIZADOR POMODORO
-==================================================
+# ⏱️ Temporizador Pomodoro - Python + Tkinter
 
-Este archivo documenta el funcionamiento completo del script `temporizador.py`, línea por línea.
+Aplicación de escritorio minimalista desarrollada con Python y Tkinter, que implementa la técnica Pomodoro: ciclos de trabajo de 25 minutos seguidos por descansos de 5 minutos.
 
---------------------------------------------------
-IMPORTACIONES
---------------------------------------------------
+---
+
+## ✅ Funcionalidades
+
+- Temporizador visual con cuenta regresiva.
+- Alertas con sonido al finalizar cada ciclo (compatible con macOS).
+- Interfaz gráfica simple e intuitiva.
+- Opción para repetir ciclos automáticamente.
+- Uso de hilos (`threading`) para evitar que la interfaz se congele.
+
+---
+
+## 🚀 Cómo ejecutar
+
+1. Cloná o descargá este repositorio.
+2. Ejecutá el script principal con Tkinter:
+    ```bash
+    python3 temporizador.py
+    ```
+3. La interfaz se abrirá y podrás iniciar el ciclo Pomodoro mediante el botón de inicio.
+
+
+---
+
+## 📚 Documentación técnica detallada
+
+A continuación se detalla el funcionamiento completo del script `temporizador.py`, línea por línea.
+
+### Importaciones
+
+```python
 import tkinter as tk
 from tkinter import messagebox
 import time
 import threading
 import os
+```
 
-- tkinter: crea interfaces gráficas (ventanas, botones, etiquetas, etc.)
-- messagebox: submódulo de tkinter para mostrar ventanas emergentes.
-- time: usado para pausas con `sleep`.
-- threading: permite ejecutar el temporizador sin congelar la interfaz.
-- os: usado para reproducir el sonido al finalizar cada ciclo.
+---
 
---------------------------------------------------
-CONSTANTES DE TIEMPO
---------------------------------------------------
-TIEMPO_TRABAJO = 25
-TIEMPO_DESCANSO = 5
+## 🧠 Aprendizajes
 
-- Definen la duración en minutos de los ciclos de trabajo y descanso.
+Este proyecto me permitió aplicar y reforzar conceptos clave como:
 
---------------------------------------------------
-FUNCIÓN: ejecutar_temporizador
---------------------------------------------------
-def ejecutar_temporizador(minutos, mensaje, callback):
+- Desarrollo de interfaces gráficas con Tkinter.
+- Uso de multithreading en Python.
+- Interacción con el sistema operativo para reproducción de sonidos.
+- Gestión de proyectos y control de versiones con Git y GitHub.
 
-- Ejecuta una cuenta regresiva en segundos.
-- Al finalizar, reproduce un sonido y ejecuta una función de continuación (callback).
+---
 
-Dentro del bucle:
-- Formatea el tiempo como MM:SS
-- Actualiza la etiqueta en pantalla
-- Espera 1 segundo por iteración
+## 🤝 Contribuciones
 
-Al finalizar:
-- Reproduce un sonido con `afplay` (solo en macOS)
-- Llama a la función `callback()` para continuar con el ciclo.
+Este es un proyecto personal de aprendizaje y desarrollo.  
+Si querés hacer sugerencias, reportar errores o proponer mejoras, podés abrir un *issue* o enviar un *pull request*.
 
---------------------------------------------------
-FUNCIÓN: iniciar_ciclo
---------------------------------------------------
-def iniciar_ciclo():
+---
 
-- Desactiva el botón
-- Cambia el texto de estado a "Sesión de trabajo"
-- Lanza un hilo para el temporizador de trabajo
-- Al terminar, llama a `iniciar_descanso`
+## 👤 Autor
 
---------------------------------------------------
-FUNCIÓN: iniciar_descanso
---------------------------------------------------
-def iniciar_descanso():
+**Jorge Bianchi**  
+GitHub: [@harikirtandas](https://github.com/harikirtandas)
 
-- Cambia el estado a "Descanso"
-- Lanza un hilo para el temporizador de descanso
-- Al terminar, llama a `preguntar_otra_vez`
-
---------------------------------------------------
-FUNCIÓN: preguntar_otra_vez
---------------------------------------------------
-def preguntar_otra_vez():
-
-- Muestra un cuadro de diálogo `¿Querés hacer otro ciclo?`
-- Si elige "Sí", comienza otro ciclo.
-- Si elige "No", muestra mensaje final y resetea la interfaz.
-
---------------------------------------------------
-INTERFAZ GRÁFICA
---------------------------------------------------
-ventana = tk.Tk()
-ventana.title("Pomodoro Minimalista")
-ventana.geometry("300x200")
-
-- Crea la ventana principal
-
-etiqueta_estado = tk.Label(...)
-etiqueta_tiempo = tk.Label(...)
-boton_inicio = tk.Button(...)
-
-- Etiquetas y botón que forman la interfaz
-- El botón inicia el ciclo
-
---------------------------------------------------
-BUCLE PRINCIPAL
---------------------------------------------------
-ventana.mainloop()
-
-- Mantiene la ventana activa y funcionando
-
---------------------------------------------------
-📊 DIAGRAMA DE FLUJO
---------------------------------------------------
-Consulta el diagrama visual del funcionamiento del temporizador aquí:
-
-diagrama-flujo.png
+---
